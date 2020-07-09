@@ -1,23 +1,22 @@
 import * as PIXI from "pixi.js"
 
 const app = new PIXI.Application({
-    width: 600,
+    width: 900,
     height: 600
 })
 
 document.body.appendChild(app.view)
 
-// TODO: Solve typing of this
-let bowsette
-let canBoost = true
+let bowsette: PIXI.Sprite
 
 app.loader
     .add('bowsette', 'assets/bowsette.png')
     .load((loader, resources) => setup(resources))
 
-function setup(resources) {
+function setup(resources: Partial<Record<string, PIXI.LoaderResource>>) {
     // Create Bowsette Sprite
-    bowsette = new PIXI.Sprite(resources.bowsette.texture)
+    bowsette = new PIXI.Sprite(resources?.bowsette?.texture)
+    console.log(bowsette)
     bowsette.x = app.renderer.width / 2
     bowsette.y = app.renderer.height / 2
     bowsette.anchor.x = 0.5
@@ -28,7 +27,7 @@ function setup(resources) {
     app.stage.addChild(bowsette)
 
     // Mouse control
-    window.addEventListener('mousemove', (event) => {
+    window.addEventListener('mousemove', (event: MouseEvent) => {
         bowsette.x = Math.min(Math.max(0, event.clientX), app.view.width)
         bowsette.y = Math.min(Math.max(0, event.clientY), app.view.height)
     })

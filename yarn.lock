@@ -73,7 +73,7 @@
   resolved "https://registry.yarnpkg.com/@pixi/constants/-/constants-5.3.0.tgz#0d94426bf2cc5e12000f7c7cbc5241e9df70174c"
   integrity sha512-tJtzKNbKA86NZ5EYeWsZfzni9kGIAfP9ZKU5036gfvMesiERAZqYUFjDUkrxF6g8pRyxcC4QBppDmB3YIKQhMA==
 
-"@pixi/core@5.3.0":
+"@pixi/core@5.3.0", "@pixi/core@^5.0.2":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@pixi/core/-/core-5.3.0.tgz#65d051af50966f5188c68ac86886df586eaa6876"
   integrity sha512-HfEaGzzLmcTaJKQ5jyHX44e6fMjhL5qV35tsqdMS41S9dDPSwp+Rhi9kYCeOr3SC0jQH4i9Nus46kqUpszvkQA==
@@ -170,7 +170,7 @@
     "@pixi/ticker" "5.3.0"
     "@pixi/utils" "5.3.0"
 
-"@pixi/loaders@5.3.0":
+"@pixi/loaders@5.3.0", "@pixi/loaders@^5.0.2":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@pixi/loaders/-/loaders-5.3.0.tgz#44424edee635e1d6b597373f30181606f78b7f02"
   integrity sha512-g85GUuGWjJmh59J8gVjcIIy9rz+Zurj+cgVWb1oGTmpAVn2q19VX9Wks167SW+vLlng4UWJyjOV91pKnW7Ys9g==
@@ -345,14 +345,14 @@
     "@pixi/sprite" "5.3.0"
     "@pixi/utils" "5.3.0"
 
-"@pixi/ticker@5.3.0":
+"@pixi/ticker@5.3.0", "@pixi/ticker@^5.0.1":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@pixi/ticker/-/ticker-5.3.0.tgz#bbd2a9f0bf1a3e120a57607c92c8058a6f9aa278"
   integrity sha512-W5QLwaVIiULbxurboEKv0D4JIT4MOBUWQiPy2ViAqil/bQ+iVg5zZUdv0r3L3PzX/ve1fxfS+YxJ2+8WfdDbig==
   dependencies:
     "@pixi/settings" "5.3.0"
 
-"@pixi/utils@5.3.0":
+"@pixi/utils@5.3.0", "@pixi/utils@^5.0.1":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@pixi/utils/-/utils-5.3.0.tgz#fb722c014b3536d498093db394311e4cbd8a5b37"
   integrity sha512-nKjygxKbkhiivsThrVjx5kzihlND92s4Az2qaoiLRtmn9ACXH+NsXtuz8ULjTvA6gdRhHszBbyVAuykWoe84aw==
@@ -1195,7 +1195,7 @@ camelcase@^5.0.0:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
   integrity sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
 
-chalk@^2.0.0, chalk@^2.4.2:
+chalk@^2.0.0, chalk@^2.3.0, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
   integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
@@ -1843,7 +1843,7 @@ end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   dependencies:
     once "^1.4.0"
 
-enhanced-resolve@^4.1.0, enhanced-resolve@^4.1.1:
+enhanced-resolve@^4.0.0, enhanced-resolve@^4.1.0, enhanced-resolve@^4.1.1:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-4.2.0.tgz#5d43bda4a0fd447cb0ebbe71bef8deff8805ad0d"
   integrity sha512-S7eiFb/erugyd1rLb6mQ3Vuq+EXHv5cpCkNqqIkYkBgN2QdFnyCZzFBleqwGEx4lgNGYij81BWnCrFNK7vxvjQ==
@@ -2222,6 +2222,14 @@ file-entry-cache@^5.0.1:
   integrity sha512-bCg29ictuBaKUwwArK4ouCaqDgLZcysCFLmM/Yn/FDoqndh/9vNuQfXRDvTuXKLxfD/JtZQGKFT8MGcJBK644g==
   dependencies:
     flat-cache "^2.0.1"
+
+file-loader@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-6.0.0.tgz#97bbfaab7a2460c07bcbd72d3a6922407f67649f"
+  integrity sha512-/aMOAYEFXDdjG0wytpTL5YQLfZnnTmLNjn+AIrJ/6HVnTfDqLsVKUUwkDf4I4kgex36BvjuXEn/TX9B/1ESyqQ==
+  dependencies:
+    loader-utils "^2.0.0"
+    schema-utils "^2.6.5"
 
 file-uri-to-path@1.0.0:
   version "1.0.0"
@@ -3153,7 +3161,7 @@ loader-runner@^2.4.0:
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
   integrity sha512-Jsmr89RcXGIwivFY21FcRrisYZfvLMTWx5kOLc+JTxtpBOG6xML0vzbc6SEQG2FO9/4Fc3wW4LVcB5DmGflaRw==
 
-loader-utils@^1.2.3, loader-utils@^1.4.0:
+loader-utils@^1.0.2, loader-utils@^1.2.3, loader-utils@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
   integrity sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
@@ -3306,7 +3314,7 @@ micromatch@^3.0.4, micromatch@^3.1.10, micromatch@^3.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
 
-micromatch@^4.0.2:
+micromatch@^4.0.0, micromatch@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.2.tgz#4fcb0999bf9fbc2fcbdd212f6d629b9a56c39259"
   integrity sha512-y7FpHSbMUMoyPbYUSzO6PaZ6FyRnQOpHuKwbo1G+Knck95XVU4QAiKdGEnj5wwoS7PlOgthX/09u5iFJ+aYf5Q==
@@ -3926,6 +3934,16 @@ pinkie@^2.0.0:
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
+pixi-sound@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/pixi-sound/-/pixi-sound-3.0.4.tgz#de2b1bfaccf92e8ef4a2352d272e6608f4588eed"
+  integrity sha512-e+BteT7KYAEs6SAAuqOFlXEarzMNzsVj6y14ecjQ7W7YzjgxQOUVgYFp6rJrDyEmDeSGvWDIR5x7bRMQZGRpzw==
+  dependencies:
+    "@pixi/core" "^5.0.2"
+    "@pixi/loaders" "^5.0.2"
+    "@pixi/ticker" "^5.0.1"
+    "@pixi/utils" "^5.0.1"
+
 pixi.js@^5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/pixi.js/-/pixi.js-5.3.0.tgz#5af9ae5d9195e26dae68d0c3118fb392b8796edf"
@@ -4372,7 +4390,7 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-schema-utils@^2.7.0:
+schema-utils@^2.6.5, schema-utils@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.7.0.tgz#17151f76d8eae67fbbf77960c33c676ad9f4efc7"
   integrity sha512-0ilKFI6QQF5nxDZLFn2dMjvc4hjg/Wkg7rHd3jK6/A4a1Hl9VFdQWvgB1UMGoU94pad1P/8N7fMcEnLnSiju8A==
@@ -4942,6 +4960,17 @@ toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
+
+ts-loader@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-8.0.0.tgz#faf4b1617dcc4a24c2925d92c5b19e9c6621064d"
+  integrity sha512-giEW167rtK1V6eX/DnXEtOgcawwoIp6hqznqYNNSmraUZOq36zMhwBq12JMlYhxf50BC58bscsTSKKtE42zAuw==
+  dependencies:
+    chalk "^2.3.0"
+    enhanced-resolve "^4.0.0"
+    loader-utils "^1.0.2"
+    micromatch "^4.0.0"
+    semver "^6.0.0"
 
 ts-node@^8.10.2:
   version "8.10.2"

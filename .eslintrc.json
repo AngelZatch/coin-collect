@@ -70,6 +70,8 @@
         ],
         "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/unified-signatures": "error",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
         "arrow-body-style": "error",
         "arrow-parens": [
             "error",
@@ -148,33 +150,6 @@
         ],
         "spaced-comment": "error",
         "use-isnan": "error",
-        "valid-typeof": "off",
-        "@typescript-eslint/tslint/config": [
-            "off",
-            {
-                "rules": {
-                    "import-spacing": true,
-                    "jsdoc-format": true,
-                    "no-reference-import": true,
-                    "one-line": [
-                        true,
-                        "check-catch",
-                        "check-else",
-                        "check-finally",
-                        "check-open-brace",
-                        "check-whitespace"
-                    ],
-                    "whitespace": [
-                        true,
-                        "check-branch",
-                        "check-decl",
-                        "check-operator",
-                        "check-separator",
-                        "check-type",
-                        "check-typecast"
-                    ]
-                }
-            }
-        ]
+        "valid-typeof": "off"
     }
 }

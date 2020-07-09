@@ -1,4 +1,4 @@
-export const keyboard = (value) => {
+export const keyboard = (value: string) => {
     const key = {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         value,
@@ -12,13 +12,13 @@ export const keyboard = (value) => {
             key.isDown = false
             key.isUp = true
         },
-        downHandler: event => {
+        downHandler: (event: KeyboardEvent) => {
             if (event.code === key.value) {
                 if (key.isUp) { key.press() }
                 event.preventDefault()
             }
         },
-        upHandler: event => {
+        upHandler: (event: KeyboardEvent) => {
             if (event.code === key.value) {
                 if (key.isUp) { key.release() }
                 event.preventDefault()

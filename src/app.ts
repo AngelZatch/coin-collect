@@ -16,7 +16,6 @@ app.loader
 function setup(resources: Partial<Record<string, PIXI.LoaderResource>>) {
     // Create Bowsette Sprite
     bowsette = new PIXI.Sprite(resources?.bowsette?.texture)
-    console.log(bowsette)
     bowsette.x = app.renderer.width / 2
     bowsette.y = app.renderer.height / 2
     bowsette.anchor.x = 0.5

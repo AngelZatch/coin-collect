@@ -2,7 +2,9 @@ import * as PIXI from "pixi.js"
 
 const app = new PIXI.Application({
     width: 900,
-    height: 600
+    height: 600,
+    antialias: true,
+    resolution: 1
 })
 
 document.body.appendChild(app.view)
@@ -11,6 +13,8 @@ let bowsette: PIXI.Sprite
 let score = 0
 const coins: Array<PIXI.Sprite> = []
 let state: () => void
+const gameScene: PIXI.Container = new PIXI.Container()
+const gameOverScene: PIXI.Container = new PIXI.Container()
 
 app.loader
     .add('bowsette', 'assets/bowsette.png')
@@ -18,6 +22,12 @@ app.loader
     .load(setup)
 
 function setup() {
+    // Create Scenes
+    app.stage.addChild(gameScene)
+
+    app.stage.addChild(gameOverScene)
+    gameOverScene.visible = false
+
     // Create Bowsette Sprite
     bowsette = new PIXI.Sprite(app.loader.resources.bowsette.texture)
     bowsette.interactive = true
@@ -28,7 +38,7 @@ function setup() {
     bowsette.scale.x = 0.1
     bowsette.scale.y = 0.1
 
-    app.stage.addChild(bowsette)
+    gameScene.addChild(bowsette)
 
     // Mouse control
     window.addEventListener('mousemove', (event: MouseEvent) => {
@@ -55,7 +65,7 @@ function play() {
     coins.forEach((coin, index) => {
         if (areSpritesColliding(bowsette, coin)) {
             coinCollected = true
-            app.stage.removeChild(coin)
+            gameScene.removeChild(coin)
             coins.splice(index, 1)
         }
     })
@@ -65,6 +75,15 @@ function play() {
         console.log('SCORE: ', score)
         coinCollected = false
     }
+
+    if (score > 500000) {
+        state = end
+    }
+}
+
+function end() {
+    gameScene.visible = false
+    gameOverScene.visible = true
 }
 
 function spawnCoin() {
@@ -77,7 +96,7 @@ function spawnCoin() {
     coin.anchor.x = 0.5
     coin.anchor.y = 0.5
 
-    app.stage.addChild(coin)
+    gameScene.addChild(coin)
 
     return coin
 }

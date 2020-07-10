@@ -1,8 +1,8 @@
 import * as PIXI from "pixi.js"
 
 const app = new PIXI.Application({
-    width: 900,
-    height: 600,
+    width: 1080,
+    height: 720,
     antialias: true,
     resolution: 1
 })
@@ -15,6 +15,7 @@ const coins: Array<PIXI.Sprite> = []
 let state: () => void
 const gameScene: PIXI.Container = new PIXI.Container()
 const gameOverScene: PIXI.Container = new PIXI.Container()
+let message: PIXI.Text
 
 app.loader
     .add('bowsette', 'assets/bowsette.png')
@@ -37,6 +38,15 @@ function setup() {
     bowsette.anchor.y = 0.5
     bowsette.scale.x = 0.1
     bowsette.scale.y = 0.1
+
+    // Create Score Text
+    message = new PIXI.Text(`Score: ${score}`, new PIXI.TextStyle({
+        fontSize: 20,
+        fill: "white"
+    }))
+    message.x = 10
+    message.y = app.renderer.height - 40
+    gameScene.addChild(message)
 
     gameScene.addChild(bowsette)
 
@@ -71,8 +81,8 @@ function play() {
     })
 
     if (coinCollected) {
-        score += 15
-        console.log('SCORE: ', score)
+        score += 1
+        message.text = `Score: ${score}`
         coinCollected = false
     }
 

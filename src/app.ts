@@ -1,4 +1,5 @@
 import * as PIXI from "pixi.js"
+import { Coin } from "./models/coin.model"
 
 const app = new PIXI.Application({
     width: 1080,
@@ -11,7 +12,7 @@ document.body.appendChild(app.view)
 
 let bowsette: PIXI.Sprite
 let score = 0
-const coins: Array<PIXI.Sprite> = []
+const coins: Array<Coin> = []
 let state: () => void
 const gameScene: PIXI.Container = new PIXI.Container()
 const gameOverScene: PIXI.Container = new PIXI.Container()
@@ -73,9 +74,16 @@ function play() {
     let coinCollected = false
 
     coins.forEach((coin, index) => {
-        if (areSpritesColliding(bowsette, coin)) {
+        // Testing collision
+        if (areSpritesColliding(bowsette, coin.sprite)) {
             coinCollected = true
-            gameScene.removeChild(coin)
+            gameScene.removeChild(coin.sprite)
+            coins.splice(index, 1)
+        }
+        // Decreasing lifespan of coin and deleting it if needed
+        coin.lifespan -= 1
+        if (coin.lifespan <= 0) {
+            gameScene.removeChild(coin.sprite)
             coins.splice(index, 1)
         }
     })
@@ -83,7 +91,6 @@ function play() {
     if (coinCollected) {
         score += 1
         message.text = `Score: ${score}`
-        coinCollected = false
     }
 
     if (score > 500000) {
@@ -96,17 +103,19 @@ function end() {
     gameOverScene.visible = true
 }
 
-function spawnCoin() {
-    const coin = new PIXI.Sprite(app.loader.resources.coin.texture)
-    coin.interactive = true
-    coin.x = Math.random() * (app.renderer.width - 10)
-    coin.y = Math.random() * (app.renderer.height - 10)
-    coin.scale.x = 0.004
-    coin.scale.y = 0.004
-    coin.anchor.x = 0.5
-    coin.anchor.y = 0.5
+function spawnCoin(): Coin {
+    const coin = new Coin({
+        sprite: new PIXI.Sprite(app.loader.resources.coin.texture)
+    })
+    coin.sprite.interactive = true
+    coin.sprite.x = Math.random() * (app.renderer.width - 10)
+    coin.sprite.y = Math.random() * (app.renderer.height - 10)
+    coin.sprite.scale.x = 0.004
+    coin.sprite.scale.y = 0.004
+    coin.sprite.anchor.x = 0.5
+    coin.sprite.anchor.y = 0.5
 
-    gameScene.addChild(coin)
+    gameScene.addChild(coin.sprite)
 
     return coin
 }

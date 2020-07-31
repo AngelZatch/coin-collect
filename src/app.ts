@@ -10,7 +10,7 @@ const app = new PIXI.Application({
 
 document.body.appendChild(app.view)
 
-let bowsette: PIXI.Sprite
+let player: PIXI.Graphics
 let score = 0
 const coins: Array<Coin> = []
 let state: () => void
@@ -30,15 +30,9 @@ function setup() {
     app.stage.addChild(gameOverScene)
     gameOverScene.visible = false
 
-    // Create Bowsette Sprite
-    bowsette = new PIXI.Sprite(app.loader.resources.bowsette.texture)
-    bowsette.interactive = true
-    bowsette.x = app.renderer.width / 2
-    bowsette.y = app.renderer.height / 2
-    bowsette.anchor.x = 0.5
-    bowsette.anchor.y = 0.5
-    bowsette.scale.x = 0.1
-    bowsette.scale.y = 0.1
+    player = new PIXI.Graphics()
+    player.beginFill(0x6cfcfc)
+    player.drawRect(-30, -30, 30, 30)
 
     // Create Score Text
     message = new PIXI.Text(`Score: ${score}`, new PIXI.TextStyle({
@@ -49,12 +43,11 @@ function setup() {
     message.y = app.renderer.height - 40
     gameScene.addChild(message)
 
-    gameScene.addChild(bowsette)
-
+    gameScene.addChild(player)
     // Mouse control
     window.addEventListener('mousemove', (event: MouseEvent) => {
-        bowsette.x = Math.min(Math.max(0, event.clientX), app.view.width)
-        bowsette.y = Math.min(Math.max(0, event.clientY), app.view.height)
+        player.x = Math.min(Math.max(0, event.clientX), app.view.width)
+        player.y = Math.min(Math.max(0, event.clientY), app.view.height)
     })
 
     state = play
@@ -75,7 +68,7 @@ function play() {
 
     coins.forEach((coin, index) => {
         // Testing collision
-        if (areSpritesColliding(bowsette, coin.sprite)) {
+        if (areSpritesColliding(player, coin.sprite)) {
             coinCollected = true
             gameScene.removeChild(coin.sprite)
             coins.splice(index, 1)
@@ -105,65 +98,22 @@ function end() {
 
 function spawnCoin(): Coin {
     const coin = new Coin({
-        sprite: new PIXI.Sprite(app.loader.resources.coin.texture)
+        sprite: new PIXI.Graphics()
     })
-    coin.sprite.interactive = true
-    coin.sprite.x = Math.random() * (app.renderer.width - 10)
-    coin.sprite.y = Math.random() * (app.renderer.height - 10)
-    coin.sprite.scale.x = 0.004
-    coin.sprite.scale.y = 0.004
-    coin.sprite.anchor.x = 0.5
-    coin.sprite.anchor.y = 0.5
+    coin.sprite.beginFill(0xf7ce3b)
+    coin.sprite.drawCircle(Math.random() * (app.renderer.width - 10), Math.random() * (app.renderer.height - 10), 10)
 
     gameScene.addChild(coin.sprite)
 
     return coin
 }
 
-function areSpritesColliding(r1: PIXI.Sprite, r2: PIXI.Sprite): boolean {
+function areSpritesColliding(r1: PIXI.Graphics, r2: PIXI.Graphics): boolean {
+    const r1Bounds = r1.getBounds()
+    const r2Bounds = r2.getBounds()
 
-    // hit will determine whether there's a collision
-    let hit = false
-
-    // Find the center points of each sprite
-    const r1CenterX = r1.x + r1.width / 2
-    const r1CenterY = r1.y + r1.height / 2
-    const r2CenterX = r2.x + r2.width / 2
-    const r2CenterY = r2.y + r2.height / 2
-
-    // Find the half-widths and half-heights of each sprite
-    const r1HalfWidth = r1.width / 2
-    const r1HalfHeight = r1.height / 2
-    const r2HalfWidth = r2.width / 2
-    const r2HalfHeight = r2.height / 2
-
-    // Calculate the distance vector between the sprites
-    const vx = r1CenterX - r2CenterX
-    const vy = r1CenterY - r2CenterY
-
-    // Figure out the combined half-widths and half-heights
-    const combinedHalfWidths = r1HalfWidth + r2HalfWidth
-    const combinedHalfHeights = r1HalfHeight + r2HalfHeight
-
-    // Check for a collision on the x axis
-    if (Math.abs(vx) < combinedHalfWidths) {
-
-        // A collision might be occurring. Check for a collision on the y axis
-        if (Math.abs(vy) < combinedHalfHeights) {
-
-            // There's definitely a collision happening
-            hit = true
-        } else {
-
-            // There's no collision on the y axis
-            hit = false
-        }
-    } else {
-
-        // There's no collision on the x axis
-        hit = false
-    }
-
-    // `hit` will be either `true` or `false`
-    return hit
+    return r1Bounds.x + r1Bounds.width > r2Bounds.x
+        && r1Bounds.x < r2Bounds.x + r2Bounds.width
+        && r1Bounds.y + r1Bounds.height > r2Bounds.y
+        && r1Bounds.y < r2Bounds.y + r2Bounds.height
 }

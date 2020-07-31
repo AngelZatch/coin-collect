@@ -4,6 +4,6 @@ export class Player {
 
     constructor(player?: Partial<Player>) {
         this.size = player && player.size || 5
-        this.score = player && player.score || 0
+        this.score = player && player.score || 0
     }
 }

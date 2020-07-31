@@ -13,6 +13,7 @@ document.body.appendChild(app.view)
 let player: PIXI.Graphics
 let score = 0
 const coins: Array<Coin> = []
+const arrows: Array<PIXI.Graphics> = []
 let state: () => void
 const gameScene: PIXI.Container = new PIXI.Container()
 const gameOverScene: PIXI.Container = new PIXI.Container()
@@ -64,6 +65,10 @@ function play() {
         coins.push(spawnCoin())
     }
 
+    if (Math.random() * 100 < 2) {
+        arrows.push(spawnArrow())
+    }
+
     let coinCollected = false
 
     coins.forEach((coin, index) => {
@@ -74,10 +79,23 @@ function play() {
             coins.splice(index, 1)
         }
         // Decreasing lifespan of coin and deleting it if needed
-        coin.lifespan -= 1
-        if (coin.lifespan <= 0) {
+        coin.sprite.x -= 5
+        if (coin.sprite.x < -1500) {
             gameScene.removeChild(coin.sprite)
             coins.splice(index, 1)
+        }
+    })
+
+    arrows.forEach((arrow, index) => {
+        arrow.x -= 9
+
+        if (areSpritesColliding(player, arrow)) {
+            state = end
+        }
+
+        if (arrow.x < -1500) {
+            gameScene.removeChild(arrow)
+            arrows.splice(index, 1)
         }
     })
 
@@ -101,11 +119,21 @@ function spawnCoin(): Coin {
         sprite: new PIXI.Graphics()
     })
     coin.sprite.beginFill(0xf7ce3b)
-    coin.sprite.drawCircle(Math.random() * (app.renderer.width - 10), Math.random() * (app.renderer.height - 10), 10)
+    coin.sprite.drawCircle((app.renderer.width + 70), Math.random() * (app.renderer.height - 10), 10)
 
     gameScene.addChild(coin.sprite)
 
     return coin
+}
+
+function spawnArrow(): PIXI.Graphics {
+    const arrow = new PIXI.Graphics()
+    arrow.beginFill(0xe236b7)
+    arrow.drawRect((app.renderer.width + 70), Math.random() * (app.renderer.height - 10), 70, 10)
+
+    gameScene.addChild(arrow)
+
+    return arrow
 }
 
 function areSpritesColliding(r1: PIXI.Graphics, r2: PIXI.Graphics): boolean {

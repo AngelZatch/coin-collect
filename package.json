@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "pixi-sound": "^3.0.4",
-    "pixi.js": "^5.3.0"
+    "pixi.js": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "14.17.5",

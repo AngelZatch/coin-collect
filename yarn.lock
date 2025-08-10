@@ -116,27 +116,10 @@
     "@pixi/core" "6.0.0"
     "@pixi/loaders" "6.0.0"
 
-"@pixi/constants@5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@pixi/constants/-/constants-5.3.0.tgz#0d94426bf2cc5e12000f7c7cbc5241e9df70174c"
-  integrity sha512-tJtzKNbKA86NZ5EYeWsZfzni9kGIAfP9ZKU5036gfvMesiERAZqYUFjDUkrxF6g8pRyxcC4QBppDmB3YIKQhMA==
-
 "@pixi/constants@6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@pixi/constants/-/constants-6.0.0.tgz#5ba5e99d57e5fc582103a105aac837935a04ba5f"
   integrity sha512-/ZvzxkYjnSOvMhAuGEzSHJ7pgxQ/6VfWyxzYhbZ9U8YRxnU4D5l2MKGIe5XpAMHEFD10t0mYzIC9tMoCrdlBGg==
-
-"@pixi/core@5.3.0", "@pixi/core@^5.0.2":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@pixi/core/-/core-5.3.0.tgz#65d051af50966f5188c68ac86886df586eaa6876"
-  integrity sha512-HfEaGzzLmcTaJKQ5jyHX44e6fMjhL5qV35tsqdMS41S9dDPSwp+Rhi9kYCeOr3SC0jQH4i9Nus46kqUpszvkQA==
-  dependencies:
-    "@pixi/constants" "5.3.0"
-    "@pixi/math" "5.3.0"
-    "@pixi/runner" "5.3.0"
-    "@pixi/settings" "5.3.0"
-    "@pixi/ticker" "5.3.0"
-    "@pixi/utils" "5.3.0"
 
 "@pixi/core@6.0.0":
   version "6.0.0"
@@ -245,20 +228,6 @@
     "@pixi/utils" "6.0.0"
     resource-loader "^3.0.1"
 
-"@pixi/loaders@^5.0.2":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@pixi/loaders/-/loaders-5.3.0.tgz#44424edee635e1d6b597373f30181606f78b7f02"
-  integrity sha512-g85GUuGWjJmh59J8gVjcIIy9rz+Zurj+cgVWb1oGTmpAVn2q19VX9Wks167SW+vLlng4UWJyjOV91pKnW7Ys9g==
-  dependencies:
-    "@pixi/core" "5.3.0"
-    "@pixi/utils" "5.3.0"
-    resource-loader "^3.0.1"
-
-"@pixi/math@5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@pixi/math/-/math-5.3.0.tgz#5a72c641221a188365a9b385f68e56cd2c1d3b0d"
-  integrity sha512-tNCEJsRhlpz2AZEhs3CPS372zgONc535pnZ9LlzErhPhbaugRraTuYrVwyuTUeqpnokpzu9VMK7ywExt3VZ/gg==
-
 "@pixi/math@6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@pixi/math/-/math-6.0.0.tgz#3fade6c46e6087648e53b5265ea8ef45d041b8d6"
@@ -346,22 +315,10 @@
     "@pixi/text" "6.0.0"
     "@pixi/ticker" "6.0.0"
 
-"@pixi/runner@5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@pixi/runner/-/runner-5.3.0.tgz#06499fe63cf89803409619bea52ca65e83c5f68c"
-  integrity sha512-E/bpmflpqvdRwqV4iyECvRz4heXIISoKRcxxyYV9wT1XstQYICifoxCN1qLqjnAZEZPbQSEnoZDXnqAOtdfWRw==
-
 "@pixi/runner@6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@pixi/runner/-/runner-6.0.0.tgz#1b789f957f5c3e7b9ee23ce7e9fa15c14a83a025"
   integrity sha512-lwlAdtC4PEPy3O0nljYNEZgsBe9AEJ8qZAFkDK+ZHQIgV3uODRIG+8dmzTmMo7pHucvMM9klK29bzBhmXS95eQ==
-
-"@pixi/settings@5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@pixi/settings/-/settings-5.3.0.tgz#437c4e1e38f718c0381fcaed44110ac388c41340"
-  integrity sha512-SbxdTGSutcxi4mpUVZ45J/YmSpItC0mLuFxS2CprcvIJ6yYf6fVkm5zBIQd5XFiiidEy1hgo66JsOj7bRMJkKg==
-  dependencies:
-    ismobilejs "^1.1.0"
 
 "@pixi/settings@6.0.0":
   version "6.0.0"
@@ -438,30 +395,12 @@
     "@pixi/sprite" "6.0.0"
     "@pixi/utils" "6.0.0"
 
-"@pixi/ticker@5.3.0", "@pixi/ticker@^5.0.1":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@pixi/ticker/-/ticker-5.3.0.tgz#bbd2a9f0bf1a3e120a57607c92c8058a6f9aa278"
-  integrity sha512-W5QLwaVIiULbxurboEKv0D4JIT4MOBUWQiPy2ViAqil/bQ+iVg5zZUdv0r3L3PzX/ve1fxfS+YxJ2+8WfdDbig==
-  dependencies:
-    "@pixi/settings" "5.3.0"
-
 "@pixi/ticker@6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@pixi/ticker/-/ticker-6.0.0.tgz#884f8d4d856793dd5e0b379c9fa6af6cecff467b"
   integrity sha512-ON9Evw2ofOCIZ/06/sS1InRT6ByPsjeQtKxSP4YxgakUqY8mXKAFvj7L3GpgjyVz4u80VdqxgEki6teElfMI4Q==
   dependencies:
     "@pixi/settings" "6.0.0"
-
-"@pixi/utils@5.3.0", "@pixi/utils@^5.0.1":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@pixi/utils/-/utils-5.3.0.tgz#fb722c014b3536d498093db394311e4cbd8a5b37"
-  integrity sha512-nKjygxKbkhiivsThrVjx5kzihlND92s4Az2qaoiLRtmn9ACXH+NsXtuz8ULjTvA6gdRhHszBbyVAuykWoe84aw==
-  dependencies:
-    "@pixi/constants" "5.3.0"
-    "@pixi/settings" "5.3.0"
-    earcut "^2.1.5"
-    eventemitter3 "^3.1.0"
-    url "^0.11.0"
 
 "@pixi/utils@6.0.0":
   version "6.0.0"
@@ -2013,7 +1952,7 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-earcut@^2.1.5, earcut@^2.2.2:
+earcut@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/earcut/-/earcut-2.2.2.tgz#41b0bc35f63e0fe80da7cddff28511e7e2e80d11"
   integrity sha512-eZoZPPJcUHnfRZ0PjLvx2qBordSiO8ofC3vt+qACLM95u+4DovnbYNpQtJh0DNsWj8RnxrQytD4WA8gj5cRIaQ==
@@ -4186,14 +4125,9 @@ pinkie@^2.0.0:
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
 pixi-sound@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/pixi-sound/-/pixi-sound-3.0.4.tgz#de2b1bfaccf92e8ef4a2352d272e6608f4588eed"
-  integrity sha512-e+BteT7KYAEs6SAAuqOFlXEarzMNzsVj6y14ecjQ7W7YzjgxQOUVgYFp6rJrDyEmDeSGvWDIR5x7bRMQZGRpzw==
-  dependencies:
-    "@pixi/core" "^5.0.2"
-    "@pixi/loaders" "^5.0.2"
-    "@pixi/ticker" "^5.0.1"
-    "@pixi/utils" "^5.0.1"
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/pixi-sound/-/pixi-sound-3.0.5.tgz#b9edc12ee543ac3470c763484e1d1f7c4e842e2b"
+  integrity sha512-I3qDfaDI3xSwMuH8ZbhIyoZiRv0jEDxR60D2rBZTTvlK5owxo5Sx4vDaQlrIyETilTU0xvBtiwh7fPGKBOsCTw==
 
 pixi.js@^6.0.0:
   version "6.0.0"
